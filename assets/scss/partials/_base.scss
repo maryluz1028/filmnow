@@ -4,11 +4,15 @@
 // Foundation
 // =≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠
 html {
-  @apply antialiased;
-  font-size: 15px;
+  @apply antialiased text-[15px] font-Nunito;
   text-rendering: optimizeLegibility;
-
-  @screen md {
-    font-size: 18px;
-  }
+}
+body{
+  @apply min-h-[100vh] text-color-white bg-color-black;
+}
+button{
+  @apply #{outline-none !important};
+}
+h1,h2,h3,h4,h5,h6{
+  @apply font-Dosis transition-all duration-500 ease-in;
 }

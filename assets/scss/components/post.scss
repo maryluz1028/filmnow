@@ -1,0 +1,82 @@
+.more-movie-details{
+    .movie-cover-container{
+        @apply relative;
+        &::after{
+            @apply absolute content-[""] inline-block w-full h-[25%] bottom-0;
+            background-image: linear-gradient(0,rgb(18,18,18) 0%, rgba(18, 18, 18, 0) 100%);
+        }
+        .movie-cover-content{
+            @apply flex justify-center items-center;
+            &::after{
+                @apply absolute content-[""] w-[50px] h-[50px] lg:w-[70px] lg:h-[70px] inline-block bg-cover cursor-pointer;
+                background-image:url("../svg/play.svg");
+            }
+        }
+        .movie-cover-image{
+            @apply h-full w-full object-cover;
+        }
+    }
+    .movie-details{
+        h2{
+            @apply uppercase font-semibold mb-4;
+        }
+        .main-details-movie{
+            @apply lg:max-w-[50%];
+            .btn-view-trailer{
+                @apply py-2 px-4 rounded-3xl bg-color-red transition-colors duration-300 ease-linear;
+                &:hover{
+                    @apply bg-color-red2;
+                }
+            }
+        }
+        .secondary-details-movie{
+            @apply flex flex-col gap-4 md:gap-0 md:flex-row md:justify-between;
+            .tbl-more-info{
+                th{
+                    @apply text-left font-normal pr-8 pb-4;
+                }
+                td{
+                    @apply text-color-red pb-4;
+                }
+            }
+        }
+        .main-actors-movie{
+                .actor{
+                    @apply flex flex-row gap-4;
+                    .actor-photo{
+                        @apply w-[40px] h-[40px] rounded-full overflow-hidden;
+                        img{
+                            @apply w-full h-full object-cover;
+                        }
+                    }
+                    .actor-names{
+                        @apply flex flex-col;
+                        .voice{
+                            @apply text-[13px] text-color-gray03;
+                        }
+                    }
+                }
+        }
+    }
+}
+.modal-movie-trailer{
+    @apply invisible opacity-0 transition-opacity duration-500 ease-in;
+    .btn-close-movie-trailer{
+        @apply absolute left-1/2 -translate-x-1/2  -top-16 flex justify-center items-center w-[40px] h-[40px] bg-color-black rounded-full;
+        &::after,&::before{
+            @apply absolute content-[''] w-[20px] h-[3px] inline-block bg-color-white;
+        }
+        &::before{
+            @apply rotate-45;
+        }
+        &::after{
+            @apply -rotate-45;
+        }
+    }
+    .iframe-movie-trailer,.video-movie-trailer {
+        @apply w-full h-full md:w-[560px] md:h-[315px];
+    }
+}
+.modal-movie-trailer.active{
+    @apply visible opacity-100;
+}

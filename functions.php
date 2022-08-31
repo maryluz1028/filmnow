@@ -20,3 +20,4 @@ $loader->addNamespace( 'WpTailwindCssThemeBoilerplate', get_stylesheet_directory
 View::$view_dir = get_stylesheet_directory() . '/templates/views';
 
 require get_stylesheet_directory() . '/includes/scripts-and-styles.php';
+require get_stylesheet_directory() . '/includes/actions-and-filters.php';

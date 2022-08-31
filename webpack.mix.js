@@ -25,9 +25,15 @@ if (local.proxy) {
 
 mix.tailwind();
 mix.js('assets/js/app.js', 'js');
-mix.sass('assets/scss/app.scss', 'css');
+mix.sass('assets/scss/app.scss', 'css').options({processCssUrls:false});
 
+mix.copy('assets/fonts','build/fonts');
+mix.copy('assets/img', 'build/img');
+mix.copy('assets/svg', 'build/svg');
+
+
+/*
 if (mix.inProduction()) {
     mix.versionHash();
     mix.sourceMaps();
-}
+}*/

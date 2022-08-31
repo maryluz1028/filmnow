@@ -1,0 +1,32 @@
+.search{
+    @apply absolute h-full w-full flex items-center left-0 px-4 bg-color-black -translate-y-full transition-transform duration-300 ease-in-out;
+    @apply md:static md:transform-none md:px-0 md:w-auto;
+    .searchform{
+        @apply w-full;
+        >div{
+            @apply flex flex-row;
+        }
+        input[type="Text"]{
+            @apply w-full  rounded-tl-3xl rounded-bl-3xl md:w-[350px];
+        }
+        button[type="Submit"]{
+            @apply rounded-tr-3xl rounded-br-3xl cursor-pointer leading-none transition-colors duration-300 ease-linear;
+            &:hover{
+                @apply lg:text-color-red;
+            }
+        }
+        input,button{
+            @apply py-1 px-4 outline-none bg-color-black2;
+        }
+
+    }
+    .close-form-search{
+        @apply px-4 transition-colors duration-300 ease-linear md:hidden;
+        &:hover{
+            @apply lg:text-color-red;
+        }
+    }
+}
+.search.active{
+    @apply translate-y-0;
+}

@@ -1,0 +1,72 @@
+.header{
+    @apply relative font-Dosis;
+    .container{
+        @apply h-full;
+        >div{
+            @apply h-full;
+        }
+    }
+    .nav-menu-main{
+        @apply fixed left-0 top-0 right-0 bottom-0 mt-[80px] bg-color-black border-t-2 border-solid border-color-red z-40 opacity-0 invisible transition-opacity duration-300 ease-in-out;
+        @apply lg:static lg:opacity-100 lg:visible lg:border-none lg:m-0;
+        .menu{
+            @apply px-6 lg:px-0 h-full flex flex-col justify-center lg:flex-row;
+            .menu-item{
+                @apply w-full relative;
+                a{
+                    @apply inline-block w-full py-4 lg:py-2 lg:px-6 text-[13px] uppercase font-semibold tracking-wide transition-colors duration-300 ease-linear;
+                }
+                &:hover{
+                    @apply lg:text-color-red;
+                }
+                a[aria-current="page"]{
+                    @apply text-color-red;
+                }
+                &:hover .sub-menu{
+                    @apply lg:opacity-100 lg:visible;
+                }
+                &:hover a::after{
+                    @apply rotate-[135deg] top-4 border-color-red;
+                }
+            }
+            .menu-item-has-children{
+                >a{
+                    &::after{
+                        @apply lg:absolute lg:content-[''] lg:inline-block w-2 h-2 -right-1 top-3 border-l-2 border-b-2 border-color-white -rotate-45 cursor-pointer transition-all duration-300 ease-linear;
+                    }
+                }
+            }
+        }
+        .sub-menu{
+            @apply bg-color-black2 text-color-white px-4 rounded-3xl  opacity-0 invisible hidden lg:px-0 transition-all duration-500 ease-out ;
+            @apply lg:absolute lg:-right-full lg:grid lg:grid-cols-2 lg:py-4  ;
+        }
+        .openSubMenu{
+            @apply absolute flex justify-center right-0 top-[10px] w-7 h-7 cursor-pointer bg-color-red rounded-lg lg:hidden;
+            &::before{
+                @apply relative top-[7px] content-[''] inline-block w-[10px] h-[10px] border-l-2 border-b-2 border-color-white -rotate-45 transition-all duration-300 ease-linear;
+            }
+        }
+        .openSubMenu.active ~.sub-menu{
+            @apply opacity-100 visible block;
+        }
+        .openSubMenu.active::before{
+            @apply rotate-[135deg] top-[10px];
+        }
+    }
+    .nav-menu-main.active{
+        @apply opacity-100 visible;
+    }
+    .btn-hamburger {
+        @apply transition-colors duration-300 ease-linear;
+        &:hover{
+            @apply lg:text-color-red;
+        }
+    }
+    .fa-magnifying-glass{
+        @apply text-lg;
+    }
+    .fa-xmark,.fa-bars{
+        @apply text-2xl;
+    }
+}

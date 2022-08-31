@@ -1,0 +1,14 @@
+.page-title{
+    @apply relative mb-14;
+    .title{
+        @apply absolute top-0 bottom-0 left-0 right-0 flex justify-center items-center text-xl sm:text-2xl lg:text-4xl uppercase font-medium;
+        backdrop-filter: brightness(.4) ;
+    }
+    .title-bg-image{
+        @apply w-full object-cover max-h-[300px];
+    }
+    &::after{
+        @apply absolute content-[''] inline-block w-full h-1/4 bottom-0 ;
+        background-image:linear-gradient(0,rgb(18,18,18) 0%,rgba(18,18,18,0)100%)
+    }
+}

@@ -1,0 +1,55 @@
+.movie-list-header{
+    @apply w-full flex justify-between items-center py-4 mb-4 lg:mb-8 border-b border-solid border-color-black2;
+    h2{
+        @apply text-lg uppercase;
+        word-spacing: 4px;
+    }
+    a{
+        @apply text-color-red;
+    }
+}
+.movie-list{
+    @apply grid grid-cols-3 lg:grid-cols-6 gap-4 lg:gap-8;
+    .movie{
+        @apply relative cursor-pointer;
+        .movie-img{
+            @apply h-full w-full;
+            img{
+                @apply w-full h-full object-cover;
+            }
+        }
+        .movie-inner{
+            @apply absolute top-0 left-0 right-0 bottom-0 p-2 hidden lg:flex justify-center items-center opacity-0 invisible transition-all duration-300 ease-in;
+            box-shadow: inset 5px 20px 100px -10px #121212;
+            a{
+                @apply py-2 px-4 bg-color-red rounded-3xl text-[13px] font-bold;
+            }
+        }
+        &:hover .movie-inner{
+            @apply opacity-100 visible;
+        }
+    }
+}
+
+section[class*='movies']{
+    @apply bg-color-black py-6;
+}
+.random-movies{
+    .rand-movie-img{
+        @apply relative;
+        img{
+            @apply w-full h-[200px] md:h-[350px] lg:h-[450px] object-cover object-top brightness-75 transition-all duration-300 ease-in;
+        }
+        .rand-movie-inner{
+            @apply absolute top-0 left-0 right-0 bottom-0 flex justify-center items-end;
+            box-shadow:inset 5px 50px 100px -10px #121212; ; 
+        }
+    }
+}
+.upcoming-movies{
+    .movie-list{
+        :first-child{
+            @apply col-span-2 row-span-2;
+        }
+    }
+}
